@@ -14,3 +14,5 @@ for(i = 0; i < avgTempWeek.length; i++) {
         console.log(avgTempWeek[0][j]);
     }
 }
+
+//teste
