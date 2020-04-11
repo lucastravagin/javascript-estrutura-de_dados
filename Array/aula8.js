@@ -15,4 +15,3 @@ for(i = 0; i < avgTempWeek.length; i++) {
     }
 }
 
-//teste
