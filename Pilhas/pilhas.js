@@ -1,4 +1,10 @@
 //O ultimo a entrar é o primeiro a sair
+/*Este interessante fenômeno é conhecido como LIFO. 
+LIFO é um acrônimo para a expressão inglesa Last In, First Out que, 
+em português significa último a entrar, primeiro a sair e será observado 
+na aplicação a ser discutida logo a seguir.
+*/
+
 
 function Stack() {
     let items = []

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício Pilha</title>
+    <style>
+        .body-contetudo {
+            position: absolute;
+            left: 12px;
+            top: 58px;
+            width: 715px;
+            height: 211px;
+        }
+    </style>
+</head>
+
+<body onfocus="setarCampo()">
+    <div id="conteudo" class="body-contetudo">
+
+    </div>
+    <form name="formPilha" method="post">
+        <input type="hidden" name="pilha">
+        <input type="text" name="elemento">
+        <input type="button" name="inserir" value="Adicionar na Pilha"
+            onclick="pushElemento(document.getElementById('elemento').value)">
+        <input type="button" name="retirar" value="Tirar da Pilha" onclick="popElemento()">
+    </form>
+    <script>
+
+        //Limpa e seta o componente elemento sempre que a página atualizar
+        function setarCampo() {
+            formPilha.elemento.value = "";
+            formPilha.elemento.focus();
+        }
+
+        var qtdeElementos = 0 //Representa o elemento superior da pilha - Variável de controle
+
+        //Verifica se a pilha está vazia quando se quer eliminar um elemento
+        //ou verifica se a pilha esá cheia quando se quer adicionar um elemento
+        function estouro_pilha(qtde, tipo) {
+            if ((tipo == 'push') && (qtde == 10)) {
+                alert('A pilha está cheia')
+                return false
+            }
+
+            if ((tipo == 'pop') && (qtde == 00)) {
+                alert('A pilha está vazia')
+                return false
+            }
+
+            return true
+        }
+
+        //Verifica a existência do caráctere ;
+        function verificaPontoVirgula() {
+            var pos = elemento.indexOf(';')
+            if (pos != -1) {
+                alert('O valor possui ;')
+                return false
+            }
+            return true
+        }
+
+
+        function pushElemento(elemento) {
+            if (estouro_pilha(qtdeElementos, 'push')) {
+                if (verificaPontoVirgula(elemento)) {
+                    if (qtdeElementos == 0) {
+                        formPilha.pilha.value = elemento
+                    } else {
+                        formPilha.pilha.value += ";" + elemento
+                    }
+                    qtdeElementos += 1
+                }
+            }
+            mostrarPilha()
+        }
+
+        //Remover o elemento da pilha - Executada quando clicar no botão retirara
+        function popElemento() {
+            if (estouro_pilha(qtdeElementos, 'pop')) {
+                var str = formPilha.pilha.value
+                var pilha = str.split(';')
+
+                formPilha.pilha.value = " ";
+
+                
+                for (let index = 0; index < pilha.length - 1; index++) {
+                    if(index == 0) {
+
+                    }else {
+                        formPilha.pilha.value += ";"+pilha[index]
+                    }
+                }
+            }
+            qtdeElementos -= 1
+            mostrarPilha();
+        }
+
+        function mostrarPilha() {
+            
+        }
+
+
+
+    </script>
+</body>
+
+</html>
